@@ -17,7 +17,7 @@ let CustomGuard = class CustomGuard {
     }
 };
 CustomGuard = __decorate([
-    common_1.Injectable()
+    (0, common_1.Injectable)()
 ], CustomGuard);
 exports.CustomGuard = CustomGuard;
 //# sourceMappingURL=customGuard.js.map

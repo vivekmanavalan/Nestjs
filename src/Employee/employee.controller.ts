@@ -1,7 +1,8 @@
-import {Body, Controller, Get, Param, ParseIntPipe, Post, Put, UsePipes, ValidationPipe} from '@nestjs/common';
+import {Body, Controller, Delete, Get, Param, ParseIntPipe, Post, Put, UsePipes, ValidationPipe, UseGuards} from '@nestjs/common';
 import { EmployeeEntity } from './employee.entity';
 import { EmployeeService } from './employee.service';
 import { EmployeeDto } from './employee.dto';
+import { EmployeeGuard } from './employeeGuard';
 
 @Controller('employee')
 export class EmployeeController {
@@ -11,7 +12,8 @@ export class EmployeeController {
     helloEmployee(){
         return 'Hola Amigo';
     }
-    @Get('getAll')
+    @Get('/getAll')
+    @UseGuards(EmployeeGuard)
     getAllEmployees(){
         return this.employeeService.getAllEmployees();
     }
@@ -25,5 +27,11 @@ export class EmployeeController {
     //If the validationPipe is not added then all the validations in the ORM will not reflect
     addEmployee(@Body() data: EmployeeDto){
         return this.employeeService.createEmployee(data);
+    }
+
+    @Delete('/:id')
+    async deleteById(@Param('id') id: number){
+        console.log('id', typeof id);
+        return this.employeeService.deleteById(id);
     }
 }

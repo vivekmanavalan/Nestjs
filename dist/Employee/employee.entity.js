@@ -14,21 +14,21 @@ const typeorm_1 = require("typeorm");
 let EmployeeEntity = class EmployeeEntity extends typeorm_1.BaseEntity {
 };
 __decorate([
-    typeorm_1.PrimaryGeneratedColumn({
+    (0, typeorm_1.PrimaryGeneratedColumn)({
         comment: 'Primary key'
     }),
     __metadata("design:type", Number)
 ], EmployeeEntity.prototype, "id", void 0);
 __decorate([
-    typeorm_1.Column({ type: 'varchar' }),
+    (0, typeorm_1.Column)({ type: 'varchar' }),
     __metadata("design:type", String)
 ], EmployeeEntity.prototype, "name", void 0);
 __decorate([
-    typeorm_1.Column({ type: 'varchar' }),
+    (0, typeorm_1.Column)({ type: 'varchar' }),
     __metadata("design:type", String)
 ], EmployeeEntity.prototype, "description", void 0);
 EmployeeEntity = __decorate([
-    typeorm_1.Entity('employee')
+    (0, typeorm_1.Entity)('employee')
 ], EmployeeEntity);
 exports.EmployeeEntity = EmployeeEntity;
 //# sourceMappingURL=employee.entity.js.map

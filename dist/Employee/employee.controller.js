@@ -16,6 +16,7 @@ exports.EmployeeController = void 0;
 const common_1 = require("@nestjs/common");
 const employee_service_1 = require("./employee.service");
 const employee_dto_1 = require("./employee.dto");
+const employeeGuard_1 = require("./employeeGuard");
 let EmployeeController = class EmployeeController {
     constructor(employeeService) {
         this.employeeService = employeeService;
@@ -32,36 +33,48 @@ let EmployeeController = class EmployeeController {
     addEmployee(data) {
         return this.employeeService.createEmployee(data);
     }
+    async deleteById(id) {
+        console.log('id', typeof id);
+        return this.employeeService.deleteById(id);
+    }
 };
 __decorate([
-    common_1.Get(),
+    (0, common_1.Get)(),
     __metadata("design:type", Function),
     __metadata("design:paramtypes", []),
     __metadata("design:returntype", void 0)
 ], EmployeeController.prototype, "helloEmployee", null);
 __decorate([
-    common_1.Get('getAll'),
+    (0, common_1.Get)('/getAll'),
+    (0, common_1.UseGuards)(employeeGuard_1.EmployeeGuard),
     __metadata("design:type", Function),
     __metadata("design:paramtypes", []),
     __metadata("design:returntype", void 0)
 ], EmployeeController.prototype, "getAllEmployees", null);
 __decorate([
-    common_1.Get('/:id'),
-    __param(0, common_1.Param('id', common_1.ParseIntPipe)),
+    (0, common_1.Get)('/:id'),
+    __param(0, (0, common_1.Param)('id', common_1.ParseIntPipe)),
     __metadata("design:type", Function),
     __metadata("design:paramtypes", [Number]),
     __metadata("design:returntype", void 0)
 ], EmployeeController.prototype, "getById", null);
 __decorate([
-    common_1.Post(),
-    common_1.UsePipes(common_1.ValidationPipe),
-    __param(0, common_1.Body()),
+    (0, common_1.Post)(),
+    (0, common_1.UsePipes)(common_1.ValidationPipe),
+    __param(0, (0, common_1.Body)()),
     __metadata("design:type", Function),
     __metadata("design:paramtypes", [employee_dto_1.EmployeeDto]),
     __metadata("design:returntype", void 0)
 ], EmployeeController.prototype, "addEmployee", null);
+__decorate([
+    (0, common_1.Delete)('/:id'),
+    __param(0, (0, common_1.Param)('id')),
+    __metadata("design:type", Function),
+    __metadata("design:paramtypes", [Number]),
+    __metadata("design:returntype", Promise)
+], EmployeeController.prototype, "deleteById", null);
 EmployeeController = __decorate([
-    common_1.Controller('employee'),
+    (0, common_1.Controller)('employee'),
     __metadata("design:paramtypes", [employee_service_1.EmployeeService])
 ], EmployeeController);
 exports.EmployeeController = EmployeeController;

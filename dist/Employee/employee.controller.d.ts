@@ -8,4 +8,5 @@ export declare class EmployeeController {
     getAllEmployees(): Promise<EmployeeEntity[]>;
     getById(id: number): Promise<EmployeeEntity>;
     addEmployee(data: EmployeeDto): Promise<EmployeeDto & EmployeeEntity>;
+    deleteById(id: number): Promise<import("typeorm").DeleteResult>;
 }

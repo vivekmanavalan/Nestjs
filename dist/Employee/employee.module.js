@@ -15,7 +15,7 @@ const employee_repository_1 = require("./employee.repository");
 let EmployeeModule = class EmployeeModule {
 };
 EmployeeModule = __decorate([
-    common_1.Module({
+    (0, common_1.Module)({
         imports: [typeorm_1.TypeOrmModule.forFeature([
                 employee_repository_1.EmployeeRepository
             ])],

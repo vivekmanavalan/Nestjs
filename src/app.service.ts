@@ -1,4 +1,5 @@
 import { Injectable } from '@nestjs/common';
+import { Cron } from '@nestjs/schedule/dist/decorators';
 
 @Injectable()
 export class AppService {

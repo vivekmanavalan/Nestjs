@@ -14,13 +14,13 @@ const class_validator_1 = require("class-validator");
 class EmployeeDto {
 }
 __decorate([
-    class_validator_1.IsNotEmpty({ message: 'Name cannot be empty' }),
-    class_validator_1.Length(3, 10),
+    (0, class_validator_1.IsNotEmpty)({ message: 'Name cannot be empty' }),
+    (0, class_validator_1.Length)(3, 10),
     __metadata("design:type", String)
 ], EmployeeDto.prototype, "name", void 0);
 __decorate([
-    class_validator_1.IsOptional(),
-    class_validator_1.Length(3, 255),
+    (0, class_validator_1.IsOptional)(),
+    (0, class_validator_1.Length)(3, 255),
     __metadata("design:type", String)
 ], EmployeeDto.prototype, "description", void 0);
 exports.EmployeeDto = EmployeeDto;

@@ -25,15 +25,15 @@ let AppController = class AppController {
     }
 };
 __decorate([
-    common_1.Get('/:name'),
-    common_1.UseGuards(customGuard_1.CustomGuard),
-    __param(0, common_1.Param('name')),
+    (0, common_1.Get)('/:name'),
+    (0, common_1.UseGuards)(customGuard_1.CustomGuard),
+    __param(0, (0, common_1.Param)('name')),
     __metadata("design:type", Function),
     __metadata("design:paramtypes", [String]),
     __metadata("design:returntype", void 0)
 ], AppController.prototype, "getHello", null);
 AppController = __decorate([
-    common_1.Controller('hello'),
+    (0, common_1.Controller)('hello'),
     __metadata("design:paramtypes", [app_service_1.AppService])
 ], AppController);
 exports.AppController = AppController;

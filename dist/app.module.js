@@ -8,16 +8,19 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.AppModule = void 0;
 const common_1 = require("@nestjs/common");
+const event_emitter_1 = require("@nestjs/event-emitter");
+const dist_1 = require("@nestjs/schedule/dist");
 const typeorm_1 = require("@nestjs/typeorm");
 const app_controller_1 = require("./app.controller");
 const app_service_1 = require("./app.service");
 const databaseconfig_1 = require("./config/databaseconfig");
 const employee_module_1 = require("./Employee/employee.module");
+const task_service_1 = require("./Scheduler/task.service");
 let AppModule = class AppModule {
 };
 AppModule = __decorate([
-    common_1.Module({
-        imports: [employee_module_1.EmployeeModule, typeorm_1.TypeOrmModule.forRoot(databaseconfig_1.databaseConfig)],
+    (0, common_1.Module)({
+        imports: [employee_module_1.EmployeeModule, typeorm_1.TypeOrmModule.forRoot(databaseconfig_1.databaseConfig), dist_1.ScheduleModule.forRoot(), task_service_1.TaskService, event_emitter_1.EventEmitterModule.forRoot()],
         controllers: [app_controller_1.AppController],
         providers: [app_service_1.AppService],
     })

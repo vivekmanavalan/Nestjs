@@ -11,11 +11,11 @@ const typeorm_1 = require("typeorm");
 const employee_entity_1 = require("./employee.entity");
 let EmployeeRepository = class EmployeeRepository extends typeorm_1.Repository {
     async getAllEmployees() {
-        return this.createQueryBuilder('employee').getMany();
+        return this.createQueryBuilder('employee').skip(0).take(15).getMany();
     }
 };
 EmployeeRepository = __decorate([
-    typeorm_1.EntityRepository(employee_entity_1.EmployeeEntity)
+    (0, typeorm_1.EntityRepository)(employee_entity_1.EmployeeEntity)
 ], EmployeeRepository);
 exports.EmployeeRepository = EmployeeRepository;
 //# sourceMappingURL=employee.repository.js.map
